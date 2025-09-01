@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-08-25T15:44:28.400951" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot" source="C:\Robot">
+<suite id="s1-s1" name="Tests" source="C:\Robot\tests">
+<suite id="s1-s1-s1" name="Add To Cart Test" source="C:\Robot\tests\add_to_cart_test.robot">
+<kw name="New Browser And Go To Login Page" owner="auth" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-08-25T15:44:28.819447" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Robot\\results\\browser\\traces\\temp\\6f21fbf7-1193-480b-a284-e5cec113e312"}</msg>
+<msg time="2025-08-25T15:44:28.890178" level="INFO">Starting Browser process C:\Users\LENOVO\AppData\Local\pypoetry\Cache\virtualenvs\robot-yZ-b3_DW-py3.11\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:63691</msg>
+<msg time="2025-08-25T15:44:31.189349" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Robot\\results\\browser\\traces\\temp\\6f21fbf7-1193-480b-a284-e5cec113e312"}</msg>
+<arg>chromium</arg>
+<arg>headless=false</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-08-25T15:44:28.817430" elapsed="2.372928"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2025-08-25T15:44:31.194867" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}</msg>
+<msg time="2025-08-25T15:44:31.233540" level="INFO">Successfully created context. </msg>
+<msg time="2025-08-25T15:44:31.234775" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 720, 'width': 1280}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-08-25T15:44:31.191357" elapsed="0.043418"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-08-25T15:44:33.945772" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com/</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-08-25T15:44:31.235584" elapsed="2.711197"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:44:28.815367" elapsed="5.131414"/>
+</kw>
+<test id="s1-s1-s1-t1" name="Add All Items To Cart And Verify" line="12">
+<kw name="Log In With Valid Credentials" owner="auth">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-25T15:44:33.988957" level="INFO">Fills the text 'standard_user' in the given field.</msg>
+<arg>${LOCATOR_USERNAME}</arg>
+<arg>${VALID_USERNAME}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-08-25T15:44:33.988957" elapsed="0.074317"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-25T15:44:34.066784" level="INFO">Fills the text 'secret_sauce' in the given field.</msg>
+<arg>${LOCATOR_PASSWORD}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-08-25T15:44:34.064779" elapsed="0.036203"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-08-25T15:44:34.103379" level="INFO">Clicks the element 'data-test=login-button'.</msg>
+<arg>${LOCATOR_LOGIN_BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-25T15:44:34.101992" elapsed="0.148982"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-08-25T15:44:34.274788" level="INFO">Waited for Element with selector [data-test="inventory-container"] at state visible</msg>
+<arg>${LOCATOR_PRODUCTS_CONTAINER}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-08-25T15:44:34.250974" elapsed="0.023814"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:44:33.986113" elapsed="0.288675"/>
+</kw>
+<kw name="Add All Items To Cart" owner="add_to_cart">
+<kw name="Get Element Count" owner="Browser">
+<msg time="2025-08-25T15:44:34.297154" level="INFO">${count} = 6</msg>
+<var>${count}</var>
+<arg>${LOCATOR_ADD_TO_CART_BUTTONS}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2025-08-25T15:44:34.274788" elapsed="0.023376"/>
+</kw>
+<kw name="Get Elements" owner="Browser">
+<msg time="2025-08-25T15:44:34.325475" level="INFO">Found locator('[data-test^="add-to-cart"]').first(),locator('[data-test^="add-to-cart"]').nth(1),locator('[data-test^="add-to-cart"]').nth(2),locator('[data-test^="add-to-cart"]').nth(3),locator('[data-test^="add-to-cart"]').nth(4),locator('[data-test^="add-to-cart"]').nth(5) Locators successfully.</msg>
+<msg time="2025-08-25T15:44:34.325475" level="INFO">${button} = ['css=[data-test^="add-to-cart"] &gt;&gt; nth=0', 'css=[data-test^="add-to-cart"] &gt;&gt; nth=1', 'css=[data-test^="add-to-cart"] &gt;&gt; nth=2', 'css=[data-test^="add-to-cart"] &gt;&gt; nth=3', 'css=[data-test^="add-to-ca...</msg>
+<var>${button}</var>
+<arg>${LOCATOR_ADD_TO_CART_BUTTONS}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns a reference to Playwright [https://playwright.dev/docs/api/class-locator|Locator]
+for all matched elements by ``selector``.</doc>
+<status status="PASS" start="2025-08-25T15:44:34.299194" elapsed="0.026281"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Click" owner="Browser">
+<msg time="2025-08-25T15:44:34.331367" level="INFO">Clicks the element 'css=[data-test^="add-to-cart"] &gt;&gt; nth=0'.</msg>
+<arg>${btn}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-25T15:44:34.331367" elapsed="0.068205"/>
+</kw>
+<var name="${btn}">css=[data-test^="add-to-cart"] &gt;&gt; nth=0</var>
+<status status="PASS" start="2025-08-25T15:44:34.331367" elapsed="0.068592"/>
+</iter>
+<iter>
+<kw name="Click" owner="Browser">
+<msg time="2025-08-25T15:44:34.403398" level="INFO">Clicks the element 'css=[data-test^="add-to-cart"] &gt;&gt; nth=1'.</msg>
+<arg>${btn}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-25T15:44:34.401398" elapsed="0.118898"/>
+</kw>
+<var name="${btn}">css=[data-test^="add-to-cart"] &gt;&gt; nth=1</var>
+<status status="PASS" start="2025-08-25T15:44:34.400392" elapsed="0.119904"/>
+</iter>
+<iter>
+<kw name="Click" owner="Browser">
+<msg time="2025-08-25T15:44:34.523113" level="INFO">Clicks the element 'css=[data-test^="add-to-cart"] &gt;&gt; nth=2'.</msg>
+<arg>${btn}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-25T15:44:34.521097" elapsed="0.045449"/>
+</kw>
+<var name="${btn}">css=[data-test^="add-to-cart"] &gt;&gt; nth=2</var>
+<status status="PASS" start="2025-08-25T15:44:34.521097" elapsed="0.045449"/>
+</iter>
+<iter>
+<kw name="Click" owner="Browser">
+<msg time="2025-08-25T15:44:34.569361" level="INFO">Clicks the element 'css=[data-test^="add-to-cart"] &gt;&gt; nth=3'.</msg>
+<msg time="2025-08-25T15:44:44.774877" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-25T15:44:44.774877" level="INFO">See also file:///C:/Robot/results/playwright-log.txt for additional details.</msg>
+<msg time="2025-08-25T15:44:44.781216" level="FAIL">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[data-test^="add-to-cart"]').nth(3)
+</msg>
+<arg>${btn}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="FAIL" start="2025-08-25T15:44:34.568056" elapsed="10.229687">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[data-test^="add-to-cart"]').nth(3)
+</status>
+</kw>
+<var name="${btn}">css=[data-test^="add-to-cart"] &gt;&gt; nth=3</var>
+<status status="FAIL" start="2025-08-25T15:44:34.566546" elapsed="10.231197">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[data-test^="add-to-cart"]').nth(3)
+</status>
+</iter>
+<var>${btn}</var>
+<value>@{button}</value>
+<status status="FAIL" start="2025-08-25T15:44:34.331367" elapsed="10.466376">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[data-test^="add-to-cart"]').nth(3)
+</status>
+</for>
+<return>
+<value>${count}</value>
+<status status="NOT RUN" start="2025-08-25T15:44:44.797743" elapsed="0.001010"/>
+</return>
+<var>${Number of all items}</var>
+<status status="FAIL" start="2025-08-25T15:44:34.274788" elapsed="10.523965">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[data-test^="add-to-cart"]').nth(3)
+</status>
+</kw>
+<kw name="Go To Cart And Verify Items" owner="add_to_cart">
+<arg>${Number of all items}</arg>
+<status status="NOT RUN" start="2025-08-25T15:44:44.799755" elapsed="0.000000"/>
+</kw>
+<doc>Login, add all items to cart, and verify all are added</doc>
+<status status="FAIL" start="2025-08-25T15:44:33.948290" elapsed="10.852458">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[data-test^="add-to-cart"]').nth(3)
+</status>
+</test>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2025-08-25T15:44:45.247920" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-25T15:44:44.826519" elapsed="0.421401"/>
+</kw>
+<status status="FAIL" start="2025-08-25T15:44:28.481986" elapsed="16.765934"/>
+</suite>
+<status status="FAIL" start="2025-08-25T15:44:28.467183" elapsed="16.795561"/>
+</suite>
+<status status="FAIL" start="2025-08-25T15:44:28.411308" elapsed="16.856509"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robot" id="s1" pass="0" fail="1" skip="0">Robot</stat>
+<stat name="Tests" id="s1-s1" pass="0" fail="1" skip="0">Robot.Tests</stat>
+<stat name="Add To Cart Test" id="s1-s1-s1" pass="0" fail="1" skip="0">Robot.Tests.Add To Cart Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

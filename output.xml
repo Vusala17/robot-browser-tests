@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.9 on win32)" generated="2025-08-22T11:29:28.836965" rpa="false" schemaversion="5">
+<suite id="s1" name="Auth Browser Test" source="C:\Robot\tests\auth_browser_test.robot">
+<kw name="New Browser And Go To Login Page" owner="auth" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-08-22T11:29:28.982842" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Robot\\browser\\traces\\temp\\98c3cde1-80c7-486a-a381-7f14a53472b2"}</msg>
+<msg time="2025-08-22T11:29:29.010152" level="INFO">Starting Browser process C:\Users\LENOVO\AppData\Local\pypoetry\Cache\virtualenvs\robot-yZ-b3_DW-py3.11\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:51566</msg>
+<msg time="2025-08-22T11:29:29.742976" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Robot\\browser\\traces\\temp\\98c3cde1-80c7-486a-a381-7f14a53472b2"}</msg>
+<arg>chromium</arg>
+<arg>headless=false</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-08-22T11:29:28.982842" elapsed="0.760134"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2025-08-22T11:29:29.749312" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}</msg>
+<msg time="2025-08-22T11:29:29.797261" level="INFO">Successfully created context. </msg>
+<msg time="2025-08-22T11:29:29.797261" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 720, 'width': 1280}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-08-22T11:29:29.742976" elapsed="0.054285"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-08-22T11:29:31.567958" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com/</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-08-22T11:29:29.797261" elapsed="1.770697"/>
+</kw>
+<status status="PASS" start="2025-08-22T11:29:28.982842" elapsed="2.586625"/>
+</kw>
+<test id="s1-t1" name="Invalid User Should Not Be Able To Login" line="18">
+<kw name="New Page" owner="Browser">
+<msg time="2025-08-22T11:29:31.812358" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com/</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-08-22T11:29:31.583688" elapsed="0.229670"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-22T11:29:31.815383" level="INFO">Fills the text 'wrong_user' in the given field.</msg>
+<arg>${LOCATOR_USERNAME}</arg>
+<arg>${INVALID_USER}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-08-22T11:29:31.813358" elapsed="0.075242"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-22T11:29:31.890620" level="INFO">Fills the text 'secret_sauce' in the given field.</msg>
+<arg>${LOCATOR_PASSWORD}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-08-22T11:29:31.888600" elapsed="0.021087"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2025-08-22T11:29:31.911208" level="INFO">Clicks the element 'data-test=login-button'.</msg>
+<arg>${LOCATOR_LOGIN_BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-22T11:29:31.910195" elapsed="0.072903"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-08-22T11:29:31.994906" level="INFO">Waited for Element with selector [data-test="error"] at state visible</msg>
+<arg>${LOCATOR_ERROR_MSG}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-08-22T11:29:31.984102" elapsed="0.011804"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2025-08-22T11:29:32.027950" level="INFO">Text: 'Epic sadface: Username and password do not match any user in this service'</msg>
+<arg>${LOCATOR_ERROR_MSG}</arg>
+<arg>==</arg>
+<arg>${ERROR_MESSAGE}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-22T11:29:31.995906" elapsed="0.032044"/>
+</kw>
+<msg time="2025-08-22T11:29:32.044499" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-08-22T11:29:32.048508" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-08-22T11:29:32.049515" level="INFO">Switching browser to browser=b159945a-78b2-4e86-9a62-d1caffc8690b</msg>
+<msg time="2025-08-22T11:29:32.052873" level="INFO">Successfully changed active browser: browser=b159945a-78b2-4e86-9a62-d1caffc8690b</msg>
+<msg time="2025-08-22T11:29:32.053870" level="INFO">Switching context to context=8647e44e-833c-4736-b36f-4d1e4f64fd5e in CURRENT</msg>
+<msg time="2025-08-22T11:29:32.061919" level="INFO">Successfully changed active context: context=8647e44e-833c-4736-b36f-4d1e4f64fd5e</msg>
+<msg time="2025-08-22T11:29:32.061919" level="INFO">Switching to page page=1e5b8fde-5811-4ad7-9ec2-e163a61fb09e,context CURRENT, browser CURRENT</msg>
+<msg time="2025-08-22T11:29:32.069284" level="INFO">Successfully changed active page: page=1e5b8fde-5811-4ad7-9ec2-e163a61fb09e</msg>
+<msg time="2025-08-22T11:29:32.089565" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<doc>Ensure login fails with invalid credentials</doc>
+<status status="PASS" start="2025-08-22T11:29:31.569467" elapsed="0.458483"/>
+</test>
+<test id="s1-t2" name="Standard User Should Be Able To See Products" line="27">
+<kw name="New Page" owner="Browser">
+<msg time="2025-08-22T11:29:32.326831" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com/</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-08-22T11:29:32.103173" elapsed="0.224787"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-22T11:29:32.329470" level="INFO">Fills the text 'standard_user' in the given field.</msg>
+<arg>${LOCATOR_USERNAME}</arg>
+<arg>${VALID_USERNAME}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-08-22T11:29:32.327960" elapsed="0.045452"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-08-22T11:29:42.499525" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-22T11:29:42.499525" level="INFO">See also file:///C:/Robot/playwright-log.txt for additional details.</msg>
+<msg time="2025-08-22T11:29:42.499525" level="FAIL">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('.inventory_list') to be visible
+</msg>
+<arg>${LOCATOR_PRODUCTS_CONTAINER}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2025-08-22T11:29:32.373412" elapsed="10.126113">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('.inventory_list') to be visible
+</status>
+</kw>
+<msg time="2025-08-22T11:29:42.523710" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-08-22T11:29:42.527224" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-08-22T11:29:42.528233" level="INFO">Switching browser to browser=b159945a-78b2-4e86-9a62-d1caffc8690b</msg>
+<msg time="2025-08-22T11:29:42.530289" level="INFO">Successfully changed active browser: browser=b159945a-78b2-4e86-9a62-d1caffc8690b</msg>
+<msg time="2025-08-22T11:29:42.530289" level="INFO">Switching context to context=8647e44e-833c-4736-b36f-4d1e4f64fd5e in CURRENT</msg>
+<msg time="2025-08-22T11:29:42.537310" level="INFO">Successfully changed active context: context=8647e44e-833c-4736-b36f-4d1e4f64fd5e</msg>
+<msg time="2025-08-22T11:29:42.537310" level="INFO">Switching to page page=3143eddc-8655-4c51-912c-3e772bea22b9,context CURRENT, browser CURRENT</msg>
+<msg time="2025-08-22T11:29:42.545724" level="INFO">Successfully changed active page: page=3143eddc-8655-4c51-912c-3e772bea22b9</msg>
+<msg time="2025-08-22T11:29:42.559772" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<doc>Ensure standard user can log in successfully</doc>
+<status status="FAIL" start="2025-08-22T11:29:32.092160" elapsed="10.407365">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('.inventory_list') to be visible
+</status>
+</test>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2025-08-22T11:29:42.799683" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-22T11:29:42.561066" elapsed="0.238978"/>
+</kw>
+<status status="FAIL" start="2025-08-22T11:29:28.839487" elapsed="13.960557"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Auth Browser Test" id="s1" pass="1" fail="1" skip="0">Auth Browser Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
